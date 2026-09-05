@@ -1,6 +1,7 @@
+package FactoryDesignPattern;
 public class SimpleFactory {
     public static void main(String[] args) throws Exception {
-        String type = "premiasdum";
+        String type = "premium";
 
         Burger burger = BurgerFactory.createBurger(type);
 
