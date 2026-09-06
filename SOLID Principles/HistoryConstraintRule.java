@@ -1,3 +1,17 @@
+public class HistoryConstraintRule {
+    public static void main(String[] args) {
+        // System.out.println("Hello, World!");
+
+        BankAccount account = new FixedDepositAccount(1000);
+
+        try {
+            account.withdraw(100); // Throws Exception, Rule Broked
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 class BankAccount {
     double balance;
 
@@ -27,19 +41,5 @@ class FixedDepositAccount extends BankAccount {
     @Override
     void withdraw(double amount) throws Exception {
         throw new Exception("Amount Can't Be Withdrawed Without Approval");
-    }
-}
-
-public class HistoryConstraintRule {
-    public static void main(String[] args) {
-        // System.out.println("Hello, World!");
-
-        BankAccount account = new FixedDepositAccount(1000);
-
-        try {
-            account.withdraw(100); // Throws Exception, Rule Broked
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
