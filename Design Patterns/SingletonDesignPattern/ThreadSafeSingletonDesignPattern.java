@@ -7,10 +7,12 @@ public class ThreadSafeSingletonDesignPattern {
         final Singleton[] instances = new Singleton[2];
 
         Thread t1 = new Thread(() -> {
+            Thread.currentThread().setName("t1");
             instances[0] = Singleton.getInstance();
         });
 
         Thread t2 = new Thread(() -> {
+            Thread.currentThread().setName("t2");
             instances[1] = Singleton.getInstance();
         });
 
@@ -36,7 +38,7 @@ class Singleton {
     }
 
     public static Singleton getInstance() {
-
+        System.out.println(Thread.currentThread().getName());
         if (instance == null) {
             synchronized (Singleton.class) {
                 if (instance == null) {
