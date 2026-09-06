@@ -1,7 +1,5 @@
 public class HistoryConstraintRule {
     public static void main(String[] args) {
-        // System.out.println("Hello, World!");
-
         BankAccount account = new FixedDepositAccount(1000);
 
         try {
